@@ -11,10 +11,10 @@ class Router
     public function add(string $method, string $uri, string $controller, string $function)
     {
         $this->routes[] = [
-            'method' -> $method,
-            'uri'-> $uri,
-            'controller' -> $controller,
-            'function' -> $function,
+            'method' => $method,
+            'uri'=> $uri,
+            'controller' => $controller,
+            'function' => $function,
         ];
     }
     
@@ -40,27 +40,11 @@ class Router
 
                $function = $route['function'];
                call_user_func_array([$controller, $function], $matches);
+               return;
             }
-            return;
         }
 
-        // if($method == 'GET' && $uri == '/students'){
-
-        //     require_once './app/controllers/StudentController.php';
-        //     $controller = new StudentController();
-        //     $controller->index();
-        //     return;
-    
-        // }
-        // if($method == 'GET' && $uri == '/students/create'){
-
-        //     require_once './app/controllers/StudentController.php';
-        //     $controller = new StudentController();
-        //     $controller->create();
-        //     return;
-    
-        // }
-        
+  
         http_response_code(404);
         echo '<h1>404 - Page Not Found</h1>';
     }
