@@ -12,7 +12,7 @@ public function __construct()
     $this->connection = mysqli_connect(
             DB_HOST,
             DB_USER,
-            DB_PASSWROD,
+            DB_PASSWORD,
             DB_NAME
         );
 
