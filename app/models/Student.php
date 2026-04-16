@@ -25,5 +25,18 @@ public function getStudents()
     }
     return $students;
 }
+
+    // Fungsi menghasilkan detail siswa
+    public function getStudent(int $id)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE id = ?";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $student = $result -> fetch_assoc();
+        return $student;
+    }
 }
 ?>
